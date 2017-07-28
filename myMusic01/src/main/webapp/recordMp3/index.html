@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>录制MP3音频</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/bg.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./css/waves.min.css?v=0.7.2">
+    <style type="text/css">
+        body{
+            background-image: url("img/1.jpg");
+        }
+        a{
+            text-decoration: none;
+        }
+        #colored-button .btn {
+            color: #fff;
+        }
+        #colored-button button,
+        #colored-button button:hover {
+            background: #1bb556;
+        }
+    </style>
+</head>
+<body>
+<div class="slideshow">
+    <h1 style="font-family: 楷体;background-color: inherit;margin-top: 40px">录制歌曲</h1>
+    <p id="colored-button" class="text-center" style="text-align: center">
+        <button onclick="funStart(this);" id="btnStart" disabled class="btn float-button-light waves-effect waves-button waves-float waves-light">录制</button>
+        <button onclick="funStop(this);" id="btnStop" disabled class="btn float-button-light waves-effect waves-button waves-float waves-light">停止</button>
+        <button onclick="funUpload(this);" id="btnUpload" disabled class="btn float-button-light waves-effect waves-button waves-float waves-light">上传</button>
+    </p>
+    <h4 style="text-align: center">调试信息：</h4>
+    <div id="recordingslist" style="text-align: center"> </div>
+</div>
+
+
+<script src="js/recordmp3.js"></script>
+<script>
+    var recorder = new MP3Recorder({
+        debug:true,
+        funOk: function () {
+            btnStart.disabled = false;
+            log('初始化成功');
+        },
+        funCancel: function (msg) {
+            log(msg);
+            recorder = null;
+        }
+    });
+    var mp3Blob;
+
+
+    function funStart(button) {
+        btnStart.disabled = true;
+        btnStop.disabled = false;
+        btnUpload.disabled = true;
+        log('录音开始...');
+        recorder.start();
+    }
+
+    function funStop(button) {
+        recorder.stop();
+        btnStart.disabled = false;
+        btnStop.disabled = true;
+        btnUpload.disabled = false;
+        log('录音结束，MP3导出中...');
+        recorder.getMp3Blob(function (blob) {
+            log('MP3导出成功');
+
+            mp3Blob = blob;
+            var url = URL.createObjectURL(mp3Blob);
+            var div = document.createElement('div');
+            var au = document.createElement('audio');
+            var hf = document.createElement('a');
+
+            au.controls = true;
+            au.src = url;
+            hf.href = url;
+            hf.download = new Date().toISOString() + '.mp3';
+            hf.innerHTML = hf.download;
+            div.appendChild(au);
+            div.appendChild(hf);
+            recordingslist.appendChild(div);
+        });
+    }
+
+    function log(str) {
+        recordingslist.innerHTML += str + '<br/>';
+    }
+
+    function funUpload() {
+        var fd = new FormData();
+        var mp3Name = encodeURIComponent(  new Date().getTime() + '.mp3');
+        fd.append('mp3Name', mp3Name);
+        fd.append('file', mp3Blob);
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                recordingslist.innerHTML += '上传成功';
+            }
+        };
+
+        xhr.open('POST', 'upload.ashx');
+        xhr.send(fd);
+    }
+</script>
+<script type="text/javascript">
+    Waves.attach('.flat-buttons', ['waves-button']);
+    Waves.attach('.float-buttons', ['waves-button', 'waves-float']);
+    Waves.attach('.float-button-light', ['waves-button', 'waves-float', 'waves-light']);
+</script>
+<script type="text/javascript" src="./js/waves.min.js?v=0.7.1"></script>
+<!-- jQuery  -->
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    var currentRoute = false;
+    $(document).on('ready', function () {
+        // Init Waves
+        Waves.init();
+        Waves.attach('.drag-ripple', 'waves-block', true);
+        Waves.attach('#bg-pattern', null, true);
+        init();
+        $(window).on('hashchange', routing);
+        /**
+         * Example source code click
+         */
+        $('#example .top-button').on('click', function () {
+            var type = $(this).data('code');
+            $('#source-code .box .code').addClass('hide');
+            $('#source-code .box #code-' + type).removeClass('hide');
+            $('#source-code').removeClass('hide');
+            setTimeout(function () {
+                $('#source-code').addClass('show');
+            }, 50);
+        });
+        $('#source-code .top-button').on('click', function () {
+            $('#source-code').removeClass('show');
+            setTimeout(function () {
+                $('#source-code .box .code').addClass('hide');
+                $('#source-code').addClass('hide');
+            }, 500);
+        });
+    });
+</script>
+</body>
+</html>

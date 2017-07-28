@@ -1,0 +1,71 @@
+.photo1{
+    list-style: none;
+    float: left;
+    padding-left: 10px;padding-bottom: 15px;
+}
+.photo1 a:hover{color: orangered}
+#userSuggest a{ text-decoration: none;font-size: 10px;color: white;  }
+#starSuggest a{ text-decoration: none;font-size: 10px;color: white;  }
+#userSuggest a:hover{ color: orangered; }
+#starSuggest .list a{font-size: 20px;color: white;}
+#starSuggest .list a:hover{color: orangered;}
+#userSuggest img{  width: 130px;  height: 130px;  }
+#starSuggest img{  width: 130px;  height: 130px;  }
+
+.box{height: 130px;width: 130px;position:relative;overflow-y:hidden;}
+.box1{width: 130px;height: 130px;}
+.box2{display:none;background-color: gainsboro;width: 130px;
+    height: 130px;opacity: 0.7;transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease; -webkit-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;position: absolute;top:100px;}
+.box:hover .box2{position: absolute;top:0;display: block;}
+
+#suggestAll{  margin-left: 10%;margin-right: 10%;  }
+#userSuggest{ width: 70%;float: left;  }
+#star{overflow: hidden;}
+#starSuggest{  width: 70%;float: left;  }
+#listMusic{  width: 25%;float: right;  }
+#bestList{ width: 25%;float: right;}
+#user{margin-top: 15px}
+.suggest1{
+    height: 30px;overflow: hidden;
+    padding: 0 10px -8px 34px;
+    background-position: -225px -156px;
+    border-bottom: 2px solid white;
+    width: 100%;margin: 0 auto;
+}
+.suggest2{
+    height: 30px;overflow: hidden;
+    padding: 0 10px -8px 20px;
+    background-position: 225px 156px;
+    border-bottom: 2px solid white;
+    width: 100%;margin: 10px auto;
+}
+
+.more{float: right}
+#nearUser{margin-left: 10%;margin-right: 10%;}
+.nav_li img{width: 100px;height: 100px;border-radius: 50%}
+.log{float: right}
+.log a{text-decoration: none;color:orangered; }
+.log a:hover{color: white;}
+.more a{ text-decoration: none;color: white}
+.list a{ text-decoration: none;color: white }
+.list{color: white}
+.list1{color: white}
+.more a:hover{ color: orangered}
+.list a:hover{ color: orangered}
+.list1 a:hover{ color: orangered}
+.list1 a{ text-decoration: none;color: white }
+.word{color: orangered;font-size: 14px}
+.clickMore a{text-decoration: none;text-align: center;color: orangered}
+.clickMore a:hover{color: white;}
+.clickMore{float: right;text-align: center}
+
+
+
+/*动态部分的css*/
+#showMusic{margin: 0 10%;float: left;}
+.W_gener img{width: 60px;
+    height:60px;border-radius: 50%;}
+.gen_music img{width: 100px;height: 100px;}
+#gen_music{margin-top: 30px;}

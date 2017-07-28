@@ -1,0 +1,148 @@
+@charset "utf-8";
+#bigdiv{
+	margin:0 auto;
+	background-color:white;
+}
+
+.myInfo{
+	margin-top: 10px;
+	height: 210px;
+	background-image: url("../img/W001.jpg");
+}
+.suggest1{
+	height: 30px;overflow: hidden;
+	padding: 0 10px -8px 34px;
+	background-position: -225px -156px;
+	border-bottom: 2px solid darkorange;
+	width: 100%;margin: 0 auto;
+}
+
+.myMusic{
+	margin-top: 0px;
+	margin-left: 15%;
+	margin-right: 15%;
+	height: 450px;
+	/*background-color: turquoise;*/
+}
+.myCreate{
+	margin-top: 0px;
+	margin-left: 15%;
+	margin-right: 15%;
+	height: 400px;
+	/*background-color: darkgrey;*/
+}
+.img1{
+	width:100px;
+	height:100px;
+	border-radius:50%; 
+}
+.photo{
+	margin-top: 10px;
+	margin-left: 10px;
+	float: left;
+}
+.interest{
+	float: left;
+	margin-left: -100px;
+	margin-top: 130px;
+	
+}
+a{
+	font-family: "微软雅黑";
+	font-size: small;
+}
+e{
+	font-family: "微软雅黑";
+	font-size: small;
+}
+.inputControl{
+	-web-kit-appearance:none;
+    -moz-appearance: none;
+    outline:0;
+    font-size:13px;
+	height:20px;
+	border-radius:4px;
+	border:none;
+	color:#6a6f77;
+	background-color: inherit;
+}
+.info p{
+	font-family: "微软雅黑";
+	font-size: small;
+}
+.info{
+	margin-top: 20px;
+	margin-left: 50px ;
+	float: left;
+	font-family: "微软雅黑";
+	font-size: small;
+}
+.rightInfo{
+	float: right;
+	margin-top: 20px;
+	margin-right:20px;
+
+}
+.button{
+	float: left;
+	width:26px;
+	height: 100px;
+	margin-left: 10px;
+	margin-top: 10px;
+	border-radius:4px;
+	background-color:orange;
+}
+.button span {
+	font-family: "微软雅黑";
+	color: #F9F0DA;
+	float: left;
+	width: 26px;
+	height: 24px;
+	line-height: 24px;
+	margin:auto;
+	padding: 4px;
+	border-radius: 50%;
+	font-size: 16px;
+}
+.search{
+	float: right;
+	margin-top: 20px;
+	margin-right: 20px;
+}
+.table_div{
+	float: left;
+	margin-top: 100px;
+	margin-left: 20%;
+}
+.table_div table{
+	width: 700px;
+	height: 200px;
+}
+.works_div{
+	float: left;
+	margin-top:30px;
+	margin-left: 20%;
+}
+.imgRadio{
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+
+.search_div{
+	float: right;
+	margin-right: 10%;
+	margin-top: 20px;
+}
+.searchWork{
+	width: auto;
+	height:20px;
+	border-radius: 5px;
+}
+.search_button{
+	width: auto;
+	height: 30px;
+	border-radius: 3px;
+	background-color: orange;
+
+}

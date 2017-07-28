@@ -9,7 +9,8 @@
     <!--连接数据库-->
     <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/mymusic?serverTimezone=GMT"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mysql/mymusic?serverTimezone=GMT"/>
+        <!--<property name="url" value="jdbc:mysql://192.168.1.117:3306/mymusic?serverTimezone=GMT"/>-->
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>

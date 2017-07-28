@@ -12,6 +12,15 @@ public class User {
     private String address;
     private String userPhoto;
     private String userSign;
+    private int userAge;
+
+    public int getUserAge() {
+        return userAge;
+    }
+
+    public void setUserAge(int userAge) {
+        this.userAge = userAge;
+    }
 
     public Integer getUserId() {
         return userId;
@@ -75,5 +84,20 @@ public class User {
 
     public void setUserSign(String userSign) {
         this.userSign = userSign;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", userSex='" + userSex + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", address='" + address + '\'' +
+                ", userPhoto='" + userPhoto + '\'' +
+                ", userSign='" + userSign + '\'' +
+                ", userAge=" + userAge +
+                '}';
     }
 }
